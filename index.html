@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat Care Guide: Juliet, Gloria &amp; Agosto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F3EC;
+    --card:#FFFFFF;
+    --ink:#2B2926;
+    --ink-soft:#6B665E;
+    --line:#E4DFD4;
+    --juliet:#8C5A3C;
+    --juliet-bg:#F3E7DE;
+    --gloria:#D9822B;
+    --gloria-bg:#FAEDDC;
+    --agosto:#33312E;
+    --agosto-bg:#EAE8E3;
+    --med:#2F6F8F;
+    --med-bg:#E3EEF3;
+    --ok:#5E7D4F;
+    --warn:#B0532F;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Atkinson Hyperlegible',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:660px;margin:0 auto;padding:0 16px}
+
+  header{padding:28px 0 8px;text-align:center}
+  h1{font-family:'Fredoka',sans-serif;font-weight:600;font-size:30px;line-height:1.15}
+  header p{color:var(--ink-soft);margin-top:6px;font-size:15px}
+  .paws{font-size:22px;letter-spacing:6px;margin-top:4px}
+
+  h2{
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:21px;
+    margin:34px 0 12px;display:flex;align-items:center;gap:8px;
+  }
+  h2 .tag{
+    font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--ink);color:var(--paper);border-radius:99px;padding:2px 10px;
+  }
+  h2 .tag.crit{background:var(--med)}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:16px;margin-bottom:12px;
+  }
+
+  /* ---- cats ---- */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:519px){.cats{grid-template-columns:1fr}}
+  .cat{border-top:6px solid;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;margin-bottom:0}
+  @media(max-width:519px){.cat{flex-direction:row;text-align:left;border-top:none;border-left:6px solid}}
+  .cat.juliet{border-color:var(--juliet);background:var(--juliet-bg)}
+  .cat.gloria{border-color:var(--gloria);background:var(--gloria-bg)}
+  .cat.agosto{border-color:var(--agosto);background:var(--agosto-bg)}
+  .cat .swatch{
+    width:46px;height:46px;border-radius:50%;flex:none;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;font-size:24px;
+    border:2px solid rgba(0,0,0,.12);
+  }
+  .cat.juliet .swatch{background:var(--juliet)}
+  .cat.gloria .swatch{background:var(--gloria)}
+  .cat.agosto .swatch{background:var(--agosto)}
+  .cat h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px}
+  .cat .desc{font-size:14px;color:var(--ink-soft)}
+  .cat .facts{margin-top:8px;font-size:14.5px;line-height:1.5}
+  .cat .feederpos{
+    display:inline-block;margin-top:10px;font-family:'Fredoka',sans-serif;font-weight:500;
+    font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;
+    background:rgba(0,0,0,.08);border-radius:99px;padding:2px 10px;
+  }
+
+  /* ---- meal times ---- */
+  .mealtimes{display:flex;flex-direction:column;gap:8px}
+  .meal{
+    display:flex;justify-content:space-between;align-items:center;
+    background:var(--paper);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;
+  }
+  .meal-name{font-family:'Fredoka',sans-serif;font-weight:500;font-size:15.5px}
+  .meal-time{font-weight:700;font-size:15.5px;white-space:nowrap}
+
+  .callout{
+    border-radius:var(--radius);padding:16px;margin-bottom:12px;
+    border:2px solid var(--med);background:var(--med-bg);
+  }
+  .callout h3{font-family:'Fredoka',sans-serif;color:var(--med);font-size:18px;margin-bottom:6px}
+  .callout strong{color:var(--med)}
+
+  .note{
+    background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);
+    padding:12px 14px;font-size:14.5px;color:var(--ink-soft);margin-bottom:12px;
+  }
+
+  /* ---- feeder steps ---- */
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:480px){.steps{grid-template-columns:1fr}}
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;text-align:center;position:relative;
+  }
+  .step .num{
+    position:absolute;top:10px;left:10px;width:26px;height:26px;border-radius:50%;
+    background:var(--ink);color:var(--paper);font-family:'Fredoka',sans-serif;
+    font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;
+  }
+  .step svg{width:130px;height:96px;margin:6px auto 4px;display:block}
+  .step p{font-size:14.5px}
+  .step b{font-weight:700}
+  .ln{fill:none;stroke:#8A857C;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .ln-thin{fill:none;stroke:#8A857C;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .fillsoft{fill:#EDE9E0;stroke:#8A857C;stroke-width:3;stroke-linejoin:round}
+  .accent{fill:var(--med)}
+  .food{fill:#C9A15A}
+
+  .warnbox{
+    border:2px solid var(--warn);background:#F8ECE4;border-radius:var(--radius);
+    padding:12px 14px;font-size:14.5px;margin-top:12px;
+  }
+  .warnbox b{color:var(--warn)}
+
+  /* ---- feeder lineup ---- */
+  .lineup{display:flex;gap:10px;justify-content:space-between;margin-top:4px}
+  .lineup .spot{
+    flex:1;text-align:center;border-radius:10px;padding:10px 6px;
+    font-family:'Fredoka',sans-serif;font-weight:500;font-size:15px;color:#fff;
+  }
+  .lineup .pos{display:block;font-family:'Atkinson Hyperlegible',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+  .lineup .cans{display:block;font-family:'Atkinson Hyperlegible',sans-serif;font-size:14px;font-weight:700;margin-top:2px;background:rgba(255,255,255,.22);border-radius:6px;padding:1px 0}
+  .lineup .agosto{background:var(--agosto)}
+  .lineup .gloria{background:var(--gloria)}
+  .lineup .juliet{background:var(--juliet)}
+
+  /* ---- litter ---- */
+  .litter li{margin-bottom:6px}
+  .litter .scoop{font-weight:700}
+  .badge{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;border-radius:5px;padding:1px 7px;margin-right:6px;color:#fff;
+  }
+  .badge.yes{background:var(--ok)}
+  .badge.no{background:#A6A199}
+
+  /* ---- contacts ---- */
+  .contact{
+    display:flex;flex-direction:column;gap:2px;
+    padding:12px 4px;border-bottom:1px solid var(--line);
+  }
+  .contact:last-child{border-bottom:none}
+  .contact .name{font-family:'Fredoka',sans-serif;font-weight:500;font-size:17px}
+  .contact a{color:var(--med);font-weight:700;text-decoration:none;font-size:16px}
+  .contact .email a{font-weight:400;font-size:14.5px}
+
+  footer{text-align:center;color:var(--ink-soft);font-size:13px;margin-top:40px}
+  ul{padding-left:20px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <h1>Cat Care Guide</h1>
+  <p>Juliet · Gloria · Agosto</p>
+  <div class="paws">🐾</div>
+</header>
+
+<!-- ================= CATS ================= -->
+<h2>Meet the cats</h2>
+
+<div class="cats">
+<div class="card cat agosto">
+  <div class="swatch">🐈‍⬛</div>
+  <div>
+    <h3>Agosto</h3>
+    <p class="desc">Black · recovering from FIP</p>
+    <p class="facts"><b>2 cans</b> per meal<br><b>Meds daily</b> before dinner</p>
+    <span class="feederpos">Feeder: Left</span>
+  </div>
+</div>
+
+<div class="card cat gloria">
+  <div class="swatch">🐱</div>
+  <div>
+    <h3>Gloria</h3>
+    <p class="desc">Orange-ish calico · confident, will say hi</p>
+    <p class="facts"><b>1 can</b> per meal</p>
+    <span class="feederpos">Feeder: Middle</span>
+  </div>
+</div>
+
+<div class="card cat juliet">
+  <div class="swatch">🐱</div>
+  <div>
+    <h3>Juliet</h3>
+    <p class="desc">Darker calico · shy, will hide from you</p>
+    <p class="facts"><b>1 can</b> per meal</p>
+    <span class="feederpos">Feeder: Right</span>
+  </div>
+</div>
+</div>
+
+<!-- ================= FEEDING ================= -->
+<h2>Feeding schedule</h2>
+<div class="card">
+  <div class="lineup">
+    <div class="spot agosto"><span class="pos">Left</span>Agosto<span class="cans">2 cans</span></div>
+    <div class="spot gloria"><span class="pos">Middle</span>Gloria<span class="cans">1 can</span></div>
+    <div class="spot juliet"><span class="pos">Right</span>Juliet<span class="cans">1 can</span></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;text-align:center">
+    Positions are as you face the feeders. Each one only opens for its own cat, so nobody can steal food.
+  </p>
+  <div class="mealtimes">
+    <div class="meal">
+      <span class="meal-name">🍳 Breakfast</span>
+      <span class="meal-time">6:00–6:30 AM</span>
+    </div>
+    <div class="meal">
+      <span class="meal-name">💊 Meds, then 🌙 dinner</span>
+      <span class="meal-time">6:00–6:30 PM</span>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-soft);margin-top:10px;text-align:center">
+    Same amounts at both meals.
+  </p>
+</div>
+<div class="note">
+  Any can or brand is fine, they aren't picky. Enough food for the weekend is on the
+  <b>entryway table</b>, along with <b>extra bowls</b> and Agosto's medicine bottle. If you
+  run out of food, there are plenty more cans in the <b>bottom drawer in the kitchen</b>.
+  For bowls: a quick <b>rinse before refilling</b> is fine, or just toss used ones in the
+  <b>dishwasher or sink</b> and grab a clean one from the entryway table.
+</div>
+
+<!-- ================= MEDICINE ================= -->
+<h2>Agosto's medicine <span class="tag crit">Most important</span></h2>
+<div class="callout">
+  <h3>💊 0.6 mL by mouth, once a day, just BEFORE dinner (6:00–6:30 PM)</h3>
+  <p>Agosto is recovering from FIP and his dose needs to happen at the <strong>same time every
+  day</strong>. That's why the dinner window can't shift, even though the cats otherwise
+  wouldn't mind. Give the medicine first, then feed him dinner. The <strong>medicine bottle
+  is on the entryway table</strong> next to the food.</p>
+</div>
+<div class="card">
+  <h3 style="font-family:'Fredoka',sans-serif;font-size:17px;margin-bottom:6px">Can't find Agosto? Check these spots, in order:</h3>
+  <ol style="margin-left:18px;font-size:15.5px">
+    <li>Behind the baskets in the <b>hallway closet</b> (second or third shelf level)</li>
+    <li>In one of the <b>cat trees</b>, bedroom or living room</li>
+    <li><b>Under the bed</b></li>
+  </ol>
+</div>
+
+<!-- ================= FEEDER ================= -->
+<h2>Opening &amp; closing the feeders</h2>
+<div class="note">
+  You only need one button to refill: the <b>Open/Close button</b>. It's the
+  <b>largest button</b> on the feeder. Looking at the <b>front</b> of the feeder it's the
+  button furthest to the <b>right</b>; looking at the <b>back</b> (where the buttons actually
+  are) it's the one furthest to the <b>left</b>.
+</div>
+
+<div class="steps">
+  <div class="step">
+    <span class="num">1</span>
+    <svg viewBox="0 0 130 96">
+      <!-- feeder rear, finger pressing the large leftmost button -->
+      <path class="fillsoft" d="M14 50 Q14 40 26 38 L100 30 Q112 29 114 40 L116 70 Q116 80 104 81 L26 84 Q14 84 14 74 Z"/>
+      <circle class="ln-thin" cx="46" cy="60" r="8"/>
+      <circle class="accent" cx="46" cy="60" r="4"/>
+      <circle class="ln-thin" cx="68" cy="58" r="4.5"/>
+      <circle class="ln-thin" cx="84" cy="56" r="4.5"/>
+      <path class="ln" d="M46 43 Q44 29 50 21 Q56 15 60 23 L58 39"/>
+      <path class="ln-thin" d="M39 47 L35 41 M53 45 L55 38" />
+    </svg>
+    <p>On the back of the feeder, press the <b>biggest button</b> (furthest left when you're behind it). The lid slides open.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">2</span>
+    <svg viewBox="0 0 130 96">
+      <!-- bowl + can pouring -->
+      <path class="fillsoft" d="M30 62 Q30 56 40 56 L90 56 Q100 56 100 62 L96 76 Q95 82 88 82 L42 82 Q35 82 34 76 Z"/>
+      <ellipse class="food" cx="65" cy="58" rx="26" ry="6"/>
+      <rect class="fillsoft" x="78" y="16" width="26" height="20" rx="3" transform="rotate(28 91 26)"/>
+      <circle class="food" cx="72" cy="44" r="2.6"/>
+      <circle class="food" cx="79" cy="49" r="2.6"/>
+      <circle class="food" cx="68" cy="50" r="2.6"/>
+    </svg>
+    <p>Lift out the old bowl and grab a fresh or rinsed one. Fill it: <b>1 can</b> (Juliet, Gloria) or <b>2 cans</b> (Agosto).</p>
+  </div>
+
+  <div class="step">
+    <span class="num">3</span>
+    <svg viewBox="0 0 130 96">
+      <!-- bowl placed into feeder tray -->
+      <path class="fillsoft" d="M12 58 Q12 48 24 46 L106 40 Q118 40 118 50 L118 74 Q118 84 106 84 L24 84 Q12 84 12 74 Z"/>
+      <path class="fillsoft" d="M42 52 Q42 47 50 47 L84 47 Q92 47 92 52 L89 62 Q88 66 83 66 L51 66 Q46 66 45 62 Z"/>
+      <ellipse class="food" cx="67" cy="49" rx="20" ry="4.5"/>
+      <path class="ln" d="M67 26 L67 40 M60 34 L67 41 L74 34"/>
+    </svg>
+    <p>Set the bowl back in the feeder, flat on its tray.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">4</span>
+    <svg viewBox="0 0 130 96">
+      <!-- closed feeder with check -->
+      <path class="fillsoft" d="M14 54 Q14 42 28 40 L102 34 Q116 33 116 46 L116 72 Q116 82 104 82 L26 84 Q14 84 14 74 Z"/>
+      <path class="ln-thin" d="M22 56 L108 50"/>
+      <circle class="ln-thin" cx="98" cy="66" r="4"/>
+      <circle cx="98" cy="66" r="1.8" fill="#5E7D4F"/>
+      <path class="ln" d="M44 14 L52 24 L70 4" style="stroke:#5E7D4F;stroke-width:5"/>
+    </svg>
+    <p>Press the same <b>Open/Close</b> button again. The lid closes and seals the food fresh. Safe to press even while a cat is eating: it won't close on them, it'll wait and close once they're done.</p>
+  </div>
+</div>
+
+<div class="warnbox">
+  <b>⚠️ Don't press the "Add a pet" button</b> (the smaller one with the cat + icon). That puts
+  the feeder in programming mode and the light will start flashing green. If you hit it by
+  accident, just <b>press it once more to cancel</b>. Also: if you leave the lid open too long
+  it will close itself after about 15 minutes. Just press Open/Close again.
+</div>
+
+<!-- ================= LITTER ================= -->
+<h2>Litter boxes</h2>
+<div class="card litter">
+  <ul style="list-style:none;padding-left:0">
+    <li class="scoop"><span class="badge yes">Scoop daily</span> Woven basket enclosure, immediately to your <b>left when you enter the living room</b></li>
+    <li class="scoop"><span class="badge yes">Scoop daily</span> Hallway closet <b>closest to the bathroom</b> (closet stays open all weekend)</li>
+    <li><span class="badge no">Skip is fine</span> Other hallway closet (also stays open)</li>
+    <li><span class="badge no">Skip is fine</span> Bathroom</li>
+  </ul>
+  <p style="font-size:14.5px;color:var(--ink-soft);margin-top:8px">
+    They mostly use the top two, so scooping just those each day is plenty.
+  </p>
+</div>
+
+<!-- ================= CONTACTS ================= -->
+<h2>Emergency contacts</h2>
+<div class="card">
+  <div class="contact">
+    <span class="name">Brittni</span>
+    <a href="tel:5626195299">(562) 619-5299</a>
+    <span class="email"><a href="mailto:brittnijenkinsn@gmail.com">brittnijenkinsn@gmail.com</a></span>
+  </div>
+  <div class="contact">
+    <span class="name">Christian</span>
+    <a href="tel:3602928496">(360) 292-8496</a>
+    <span class="email"><a href="mailto:christian.garretson@yahoo.com">christian.garretson@yahoo.com</a></span>
+  </div>
+  <div class="contact">
+    <span class="name">Christian's mom (backup)</span>
+    <a href="tel:0000000000">ADD NUMBER HERE</a>
+  </div>
+</div>
+
+<footer>Thank you for taking care of them! 🐾</footer>
+</div>
+
+</body>
+</html>
