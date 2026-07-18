@@ -164,6 +164,23 @@
   .contact a{color:var(--med);font-weight:700;text-decoration:none;font-size:16px}
   .contact .email a{font-weight:400;font-size:14.5px}
 
+  /* ---- emergency vets ---- */
+  .vet{
+    display:flex;flex-direction:column;gap:2px;
+    padding:12px 4px;border-bottom:1px solid var(--line);
+  }
+  .vet:last-child{border-bottom:none}
+  .vet .name{font-family:'Fredoka',sans-serif;font-weight:500;font-size:17px}
+  .vet .name .pref{
+    font-family:'Atkinson Hyperlegible',sans-serif;font-size:11.5px;font-weight:700;
+    letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--ok);
+    border-radius:5px;padding:1px 7px;margin-left:8px;vertical-align:2px;
+  }
+  .vet .addr{font-size:14.5px;color:var(--ink-soft)}
+  .vet .addr a{color:var(--ink-soft);text-decoration:underline}
+  .vet a.tel{color:var(--med);font-weight:700;text-decoration:none;font-size:16px}
+  .vet .hours{font-size:12.5px;color:var(--ok);font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+
   footer{text-align:center;color:var(--ink-soft);font-size:13px;margin-top:40px}
   ul{padding-left:20px}
 </style>
@@ -365,6 +382,30 @@
   <div class="contact">
     <span class="name">Christian's mom (backup)</span>
     <a href="tel:3602043784">(360) 204-3784</a>
+  </div>
+</div>
+
+<h2>Emergency vets <span class="tag">All open 24/7</span></h2>
+<div class="note">
+  If something seems wrong with any of the cats, <b>call or text us first</b> if you can.
+  Our first choice is <b>BluePearl in Kirkland</b>. It's a little further than the others,
+  but it's the one we trust most. The other two are closer if it's urgent and every minute counts.
+</div>
+<div class="card">
+  <div class="vet">
+    <span class="name">BluePearl Pet Hospital Kirkland <span class="pref">Our pick</span></span>
+    <a class="tel" href="tel:4258239111">(425) 823-9111</a>
+    <span class="addr"><a href="https://maps.google.com/?q=BluePearl+Pet+Hospital+Kirkland+11814+115th+Ave+NE+Kirkland+WA+98034" target="_blank" rel="noopener">11814 115th Ave NE, Bldg J, Kirkland, WA 98034</a></span>
+  </div>
+  <div class="vet">
+    <span class="name">Bellevue Veterinary Emergency &amp; Specialty</span>
+    <a class="tel" href="tel:4253074215">(425) 307-4215</a>
+    <span class="addr"><a href="https://maps.google.com/?q=Bellevue+Veterinary+Emergency+%26+Specialty+2515+140th+Ave+NE+Bellevue+WA+98005" target="_blank" rel="noopener">2515 140th Ave NE, Bldg E, Floor 1, Bellevue, WA 98005</a></span>
+  </div>
+  <div class="vet">
+    <span class="name">Veterinary Emergency Group (Redmond)</span>
+    <a class="tel" href="tel:4258180760">(425) 818-0760</a>
+    <span class="addr"><a href="https://maps.google.com/?q=Veterinary+Emergency+Group+15830+Redmond+Way+Redmond+WA+98052" target="_blank" rel="noopener">15830 Redmond Way, Redmond, WA 98052</a></span>
   </div>
 </div>
 
